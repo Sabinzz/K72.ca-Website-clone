@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import Video from './Video'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap';

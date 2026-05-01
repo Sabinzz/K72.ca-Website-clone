@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Globe } from 'lucide-react';
-import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 const Api = `https://api.openweathermap.org/data/2.5/weather?`;
@@ -8,8 +7,6 @@ const Api_key = `2be7ade7b21d37d3098d52183899fbd4`;
 const Footer = () => {
     
     const [Time, setTime] = useState(new Date());
-  const [Latitude, setLatitude] = useState();
-  const [Longitude, setLongitude] = useState();
   const [Country, setCountry] = useState();
 
   // 🕒 Time updater
@@ -27,15 +24,11 @@ const Footer = () => {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
 
-      setLatitude(lat);
-      setLongitude(lon);
-
       // ✅ Move API call *inside* callback so it waits for coords
       const FinalApi = `${Api}lat=${lat}&lon=${lon}&appid=${Api_key}`;
       axios
         .get(FinalApi)
         .then((response) => {
-        console.log(response.data)
           setCountry(response.data.sys.country);
         })
         .catch((error) => {

@@ -1,8 +1,6 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React from 'react'
-import { useEffect } from 'react';
 import { useRef } from 'react';
 import Card from '../Agence/Card.jpg'
 import Card1 from '../Agence/Card1.jpg'
@@ -40,8 +38,6 @@ const UpperPortion = () => {
             scrub:1,
 
             onUpdate:((elem)=>{
-                console.log(elem.progress)
-                console.log(images.length)
                 let ImageIndex
                 if(elem.progress<1){
 
@@ -90,7 +86,6 @@ opacity:1,
 
   scrollTrigger:{
     trigger:'.MarqueRef',
- markers:true,
     start:'top 90%',
     end:'top 40%',
     scrub:true,
